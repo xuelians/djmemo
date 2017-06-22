@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>欢迎光临</title>
+</head>
+<body>
+欢迎光临自强学堂
+<br>
+
+{{string}}
+<br>
+
+{% for i in TutorialList %}
+{{ i }}
+{% endfor %}
+<br>
+
+站点：{{ info_dict.site }} 内容：{{ info_dict.content }}
+<br>
+
+{% for key, value in info_dict.items %}
+    {{ key }}: {{ value }}
+{% endfor %}
+<br>
+{% for item in List %}
+    <li>{{ item }} {% if not forloop.last %}(not last){% endif %} </li>
+{% empty %}
+    <li>sorry, empty list</li>
+{% endfor %}
+
+<br>
+
+{{ request.user }}
+<br>
+
+{% if request.user.is_authenticated %}
+    {{ request.user.username }}, hello
+{% else %}
+    please login
+{% endif %}
+
+</body>
+</html>
